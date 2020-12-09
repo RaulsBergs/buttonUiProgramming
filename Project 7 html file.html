@@ -22,40 +22,38 @@
     <body>
         <canvas id="canvas" style="border:1px solid #000000;"></canvas>
         <script>
-            //Width and height for our canvas
+            //Width and height for the canvas
             var canvasWidth = 1330;
             var canvasHeight = 500;
 
-            //the with and height of our spritesheet
+            //the with and height of the spritesheet
             var spriteWidth = 1536;
             var spriteHeight = 256;
 
-            //we are having two rows and 8 cols in the current sprite sheet
+            //there are 1 rows and 5 cols in the player sprite sheet
             var rows = 1;
             var cols = 5;
 
-            //To get the width of a single sprite we divided the width of sprite with the number of cols
-            //because all the sprites are of equal width and height 
+            //getting the size on one columne
             var width = spriteWidth / 6.1;
 
-            //Same for the height we divided the height with number of rows 
+            //getting the size of one row
             var height = spriteHeight / rows;
 
-            //Each row contains 8 frame and at start we will display the first frame (assuming the index from 0)
+            
             var curFrame = 0;
 
-            //The total frame is 8 
+            //The total amount of frames is 5 
             var frameCount = 5;
 
-            //x and y coordinates of the canvas to get the single frame 
+            //x and y coordinates of the canvas
             var srcX = 0;
             var srcY = 0;
 
+            //bools to control one button to work at one time
             var movingBool = false;
-            var movingRight;
-            var movingLeft;
 
-            //Speed of the movement 
+            
             var speed = 0;
 
             //Getting the canvas 
@@ -65,19 +63,24 @@
             canvas.width = canvasWidth;
             canvas.height = canvasHeight;
 
-            //Establishing a context to the canvas 
+            //setting context to the canvas 
             var ctx = canvas.getContext("2d");
 
+            //setting up player with sprite
             var character = new Image();
             character.src = "spritestrip.png";
 
+            //setting up background sprite
             var backGround = new Image();
             backGround.src = "Background.png";
             backGround.style.width = '2%'
             backGround.style.height = 'auto'
 
+            //The positions of the player
             var characterXPos = 100;
             var characterYPos = 200;
+            
+            //Speed of the player
             var characterSpeed = 0;
 
             function updateFrame() {
